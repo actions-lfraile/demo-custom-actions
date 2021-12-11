@@ -12,12 +12,19 @@ jobs:
       GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
     steps:
       # We need to authenticate with an App token to check out the private (custom actions)
-      - name: Retrieve the admin token
-        id: github_app
-        uses: machine-learning-apps/actions-app-token@0.21
-        with:
-          APP_PEM: ${{ secrets.APP_PRIVATE_KEY }}
-          APP_ID: ${{ secrets.APP_ID }}
+      # - name: Retrieve the admin token
+      #   id: github_app
+      #   uses: machine-learning-apps/actions-app-token@0.21
+      #   with:
+      #     APP_PEM: ${{ secrets.APP_PRIVATE_KEY }}
+      #     APP_ID: ${{ secrets.APP_ID }}
+
+      - name: Get Token
+          id: github_app
+          uses: peter-murray/workflow-application-token-action@v1
+          with:
+            application_id: ${{ secrets.APP_ID }}
+            application_private_key: ${{ secrets.APP_PRIVATE_KEY }}
 
       # Check out a private action to parse the issue body
       - name: Checkout the issue parser action
@@ -61,12 +68,12 @@ jobs:
           token: ${{ steps.github_app.outputs.app_token }}
           path: repo-creator
 
-      - name: Create capability repository
-        id: create_repository
-        uses: ./repo-creator
-        with:
-          repository_name: ${{ steps.parser.outputs.name }}
-          admin_token: ${{ steps.github_app.outputs.app_token }}
+      # - name: Create capability repository
+      #   id: create_repository
+      #   uses: ./repo-creator
+      #   with:
+      #     repository_name: ${{ steps.parser.outputs.name }}
+      #     admin_token: ${{ steps.github_app.outputs.app_token }}
 
       - uses: actions/github-script@v4
         name: Report created elements
