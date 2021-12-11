@@ -20,11 +20,11 @@ jobs:
       #     APP_ID: ${{ secrets.APP_ID }}
 
       - name: Get Token
-          id: github_app
-          uses: peter-murray/workflow-application-token-action@v1
-          with:
-            application_id: ${{ secrets.APP_ID }}
-            application_private_key: ${{ secrets.APP_PRIVATE_KEY }}
+        id: github_app
+        uses: peter-murray/workflow-application-token-action@v1
+        with:
+          application_id: ${{ secrets.APP_ID }}
+          application_private_key: ${{ secrets.APP_PRIVATE_KEY }}
 
       # Check out a private action to parse the issue body
       - name: Checkout the issue parser action
