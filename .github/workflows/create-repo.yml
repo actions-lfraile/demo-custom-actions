@@ -68,12 +68,12 @@ jobs:
           token: ${{ steps.github_app.outputs.token }}
           path: repo-creator
 
-      # - name: Create capability repository
-      #   id: create_repository
-      #   uses: ./repo-creator
-      #   with:
-      #     repository_name: ${{ steps.parser.outputs.name }}
-      #     admin_token: ${{ steps.github_app.outputs.token }}
+      - name: Create capability repository
+        id: create_repository
+        uses: ./repo-creator
+        with:
+          repository_name: ${{ steps.parser.outputs.name }}
+          admin_token: ${{ steps.github_app.outputs.token }}
 
       - uses: actions/github-script@v4
         name: Report created elements
