@@ -4,6 +4,7 @@ name: Create repo
 on:
   issues:
     types: [opened]
+  workflow_dispatch:
 
 jobs:
   create-repository:
