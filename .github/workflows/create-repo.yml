@@ -4,8 +4,6 @@ name: Create repo
 on:
   issues:
     types: [opened]
-permissions: 
-   
 
 jobs:
   create-repository:
