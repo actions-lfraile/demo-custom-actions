@@ -20,9 +20,9 @@ jobs:
    
       - name: Parse the issue
         id: parser
-        uses: lfraileorg/custom-js-action-issue-parser@main
+        uses: lfraile-dotnet-2022-workshop/custom-js-action-issue-parser@main
         with:
-          admin_token: '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'
+          admin_token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Greetings for the users submitting issues to this repository
         uses: actions/github-script@v4
