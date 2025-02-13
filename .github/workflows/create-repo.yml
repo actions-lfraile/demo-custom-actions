@@ -18,11 +18,11 @@ jobs:
           application_id: ${{ secrets.APP_ID }}
           application_private_key: ${{ secrets.APP_PRIVATE_KEY }}
    
-      # - name: Parse the issue
-      #   id: parser
-      #   uses: lfraileorg/custom-js-action-issue-parser@main
-      #   with:
-      #     admin_token: ${{ steps.github_app.outputs.token }}
+      - name: Parse the issue
+        id: parser
+        uses: lfraileorg/custom-js-action-issue-parser@main
+        with:
+          admin_token: ${{secrets.GITHUB_TOKEN}}
 
       - name: Greetings for the users submitting issues to this repository
         uses: actions/github-script@v4
