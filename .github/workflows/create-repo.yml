@@ -20,7 +20,7 @@ jobs:
    
       - name: Parse the issue
         id: parser
-        uses: lfraile-dotnet-2022-workshop/custom-js-action-issue-parser@main
+        uses: lfraileorg/custom-js-action-issue-parser@main
         with:
           admin_token: ${{ secrets.GITHUB_TOKEN }}
 
