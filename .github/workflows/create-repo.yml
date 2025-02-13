@@ -18,11 +18,11 @@ jobs:
           application_id: ${{ secrets.APP_ID }}
           application_private_key: ${{ secrets.APP_PRIVATE_KEY }}
    
-      - name: Parse the issue
-        id: parser
-        uses: lfraileorg/custom-js-action-issue-parser@main
-        with:
-          admin_token: ${{ steps.github_app.outputs.token }}
+      # - name: Parse the issue
+      #   id: parser
+      #   uses: lfraileorg/custom-js-action-issue-parser@main
+      #   with:
+      #     admin_token: ${{ steps.github_app.outputs.token }}
 
       - name: Greetings for the users submitting issues to this repository
         uses: actions/github-script@v4
@@ -40,12 +40,12 @@ jobs:
               `
             })
 
-      - name: Create capability repository
-        id: create_repository
-        uses: lfraileorg/custom-js-action-repo-creator@main
-        with:
-          repository_name: ${{ steps.parser.outputs.name }}
-          admin_token: ${{ steps.github_app.outputs.token }}
+      # - name: Create capability repository
+      #   id: create_repository
+      #   uses: lfraileorg/custom-js-action-repo-creator@main
+      #   with:
+      #     repository_name: ${{ steps.parser.outputs.name }}
+      #     admin_token: ${{ steps.github_app.outputs.token }}
 
       - uses: actions/github-script@v4
         name: Report created elements
