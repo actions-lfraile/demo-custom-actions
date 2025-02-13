@@ -41,12 +41,12 @@ jobs:
               `
             })
 
-      # - name: Create capability repository
-      #   id: create_repository
-      #   uses: lfraileorg/custom-js-action-repo-creator@main
-      #   with:
-      #     repository_name: ${{ steps.parser.outputs.name }}
-      #     admin_token: ${{ steps.github_app.outputs.token }}
+      - name: Create capability repository
+        id: create_repository
+        uses: lfraileorg/custom-js-action-repo-creator@main
+        with:
+          repository_name: ${{ steps.parser.outputs.name }}
+          admin_token: ${{ steps.github_app.outputs.token }}
 
       - uses: actions/github-script@v4
         name: Report created elements
