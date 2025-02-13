@@ -22,7 +22,7 @@ jobs:
         id: parser
         uses: lfraileorg/custom-js-action-issue-parser@main
         with:
-          admin_token: ${{secrets.GITHUB_TOKEN}}
+          admin_token: ${{ steps.github_app.outputs.token }}
 
       - name: Greetings for the users submitting issues to this repository
         uses: actions/github-script@v4
