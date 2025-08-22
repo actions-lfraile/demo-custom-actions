@@ -8,7 +8,7 @@ on:
 
 jobs:
   create-repository:
-    runs-on: windows-latest
+    runs-on: windows-2025
     env:
       GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
     steps:
@@ -21,7 +21,7 @@ jobs:
    
       - name: Parse the issue
         id: parser
-        uses: actions-lfraile/custom-js-action-issue-parser@update_packages
+        uses: actions-lfraile/custom-js-action-issue-parser@main
         with:
           admin_token: ${{ steps.github_app.outputs.token }}
 
