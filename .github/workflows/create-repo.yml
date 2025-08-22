@@ -21,7 +21,7 @@ jobs:
    
       - name: Parse the issue
         id: parser
-        uses: lfraileorg/custom-js-action-issue-parser@main
+        uses: actions-lfraile/custom-js-action-issue-parser@main
         with:
           admin_token: ${{ steps.github_app.outputs.token }}
 
@@ -43,7 +43,7 @@ jobs:
 
       - name: Create capability repository
         id: create_repository
-        uses: lfraileorg/custom-js-action-repo-creator@main
+        uses: actions-lfraile/custom-js-action-repo-creator@main
         with:
           repository_name: ${{ steps.parser.outputs.name }}
           admin_token: ${{ steps.github_app.outputs.token }}
