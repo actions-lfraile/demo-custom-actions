@@ -47,7 +47,7 @@ jobs:
         with:
           repository_name: ${{ steps.parser.outputs.name }}
           admin_token: ${{ steps.github_app.outputs.token }}
-          description:  ${{ steps.parser.outputs.description }}
+          repository_description:  ${{ steps.parser.outputs.description }}
 
       - uses: actions/github-script@v4
         name: Report created elements
